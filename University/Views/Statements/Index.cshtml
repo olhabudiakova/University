@@ -1,0 +1,37 @@
+﻿@model IEnumerable<University.Models.StatementStudentList>
+@{
+    ViewBag.Title = "Ведомости";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+ 
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Ведомости</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Номер</th>
+            <th>Курс</th>
+            <th>Группа</th>
+            <th>Предмет</th>
+
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.StatementId</td>
+                <td>@s.GroupId</td>
+                <td>@s.Group.StudyYear</td>
+                <td>@s.Statement.Subject.Title</td>
+            </tr>
+        }
+    </table>
+
+    <p><a href="~/Statements/CreateStatement">Добавить ведомость</a></p>
+    <p></p>
+</body>
+</html>

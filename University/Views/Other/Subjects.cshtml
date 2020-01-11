@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Список предметов";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Список Предметов</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ИД</th>
+            <th>Предмет</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.SubjectId</td>
+                <td>@s.Title</td>
+            </tr>
+        }
+    </table>
+
+    <p><a href="~/Other/CreateSubject">Добавить предмет</a></p>
+</body>
+</html>

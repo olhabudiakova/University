@@ -1,0 +1,25 @@
+﻿@model University.Models.Subject
+@{
+    ViewBag.Title = "Добавление дисциплины";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавление новой дисциплины</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Дисциплина</legend>
+
+        <p>
+            Название дисциплины <br />
+            @Html.EditorFor(model => model.Title)
+        </p>
+        <p>
+            <input type="submit" value="Добавить дисциплину" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку типов предметов", "Subjects")
+</div>

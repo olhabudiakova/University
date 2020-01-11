@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Список специальностей";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Список специальностей</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ИД</th>
+            <th>Специальность</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.SpecialtyId</td>
+                <td>@s.Title</td>
+            </tr>
+        }
+    </table>
+
+    <p><a href="~/Other/CreateSpecialty">Добавить специальность</a></p>
+</body>
+</html>

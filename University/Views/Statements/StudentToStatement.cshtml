@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Добавление студентов в ведомость";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model University.Models.StatementStudentList
+<h2>Ведомость</h2>
+
+@using (Html.BeginForm("StudentToStatement", "Statements", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.StatementId)
+    <p>
+    
+    <p>
+        Выберите студента: <br />
+        @Html.DropDownListFor(model => model.RecordNumber, ViewBag.Students as SelectList)
+    </p>
+    <p>
+        Выберите группу: <br />
+        @Html.DropDownListFor(model => model.GroupId, ViewBag.Groups as SelectList)
+    </p>
+    </p>
+
+    <p><input type="submit" value="Добавить" /></p>
+</fieldset>
+}

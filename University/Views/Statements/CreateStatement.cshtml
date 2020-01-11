@@ -1,0 +1,33 @@
+﻿@model University.Models.Statement
+
+@{
+    ViewBag.Title = "Добавление ведомости";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавление ведомости</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Ведомость</legend>
+        <p>
+            Дисциплина  <br />
+            @Html.DropDownListFor(model => model.SubjectId, ViewBag.Subjects as SelectList)
+        </p>
+        <p>
+            Преподаватель <br />
+            @Html.DropDownListFor(model => model.LecturerId, ViewBag.Lecturers as SelectList)
+        </p>
+        <p>
+            Семестр  <br />
+            @Html.EditorFor(model => model.Semester)
+        </p>
+        <p>
+            <input type="submit" value="Добавить ведомость" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку ведомостей", "Statements")
+</div>

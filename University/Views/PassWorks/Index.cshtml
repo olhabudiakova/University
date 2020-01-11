@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PassWorks> 
+@{
+    ViewData["Title"] = "Результаты работ";
+ 
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/css/table.css" rel="stylesheet" />
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Предмет</th>
+            <th>Тип работы</th>
+            <th>Фамилия студента</th>
+            <th>Оценка</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m=>@s.Subject.Title)</td>
+                <td>@Html.DisplayFor(m=>@s.Works.Title)</td>
+                <td>@Html.DisplayFor(m=>@s.Student.SecondName)</td>
+                <td>@s.Mark</td>
+            </tr>
+        }
+    </table>
+
+    <p><a href="~/PassWorks/AddResult">Добавить результаты проведенной работы</a></p>
+</body>
+</html>

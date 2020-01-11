@@ -1,0 +1,63 @@
+﻿@model University.Models.PassWorks
+
+@{
+    ViewBag.Title = "Добавление результатов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Ведомости</title>
+</head>
+<body>
+    <div class="container">
+    <form method="get">
+        <div class="container">
+
+            <label class="control-label">Группа: </label>
+            <select name="groupid" asp-items="ViewBag.Groups" class="form-control"></select>
+
+            <input type="submit" value="Фильтр" class="btn btn-default" />
+        </div>
+    </form>
+    <h3>Результаты работы</h3>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Результаты</legend>
+            <p>
+                Дисциплина  <br />
+                @Html.DropDownListFor(model => model.SubjectId, ViewBag.Subjects as SelectList)
+            </p>
+            <p>
+                Тип работы <br />
+                @Html.DropDownListFor(model => model.WorksWorkId, ViewBag.Works as SelectList)
+            </p>
+            <p>
+                Студент <br />
+                @Html.DropDownListFor(model => model.StudentId, ViewBag.Students as SelectList)
+            </p>
+            <p>
+                Оценка  <br />
+                @Html.EditorFor(model => model.Mark)
+            </p>
+            <p>
+                Дата <br />
+                <input type="date" name="Date" />
+            </p>
+            <br />
+            <p>
+                <input type="submit" value="Добавить результат" />
+            </p>
+        </fieldset>
+        <br />
+    }
+    <div>
+        @Html.ActionLink("К списку результатов", "Index")
+    </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<PassWorks>
+@using University.Models;
+@{
+    ViewData["Title"] = "Список студентов";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Студенты</title>
+</head>
+<body>
+
+    <h3>Набранные баллы за семестр</h3>
+    <table>
+        
+        <tr>
+            <th>Предмет</th>
+            <th>Тип работы</th>
+            <th>Оценка</th>
+        </tr>
+        
+        @foreach (var s in Model)
+        {         
+            <tr>
+                <td>@s.Subject.Title</td>
+                <td>@s.Works.Title</td>
+                <td>@s.Mark</td>
+            </tr>
+        }
+    </table>
+    <p><a href="~/Students/Index">Вернуться к списку студентов</a></p>
+</body>
+</html>

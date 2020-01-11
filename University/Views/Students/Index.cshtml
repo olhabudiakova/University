@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using System.Security.Claims;
+@using University.Models;
+@using Microsoft.EntityFrameworkCore;
+@model IEnumerable<University.Models.Student>
+@{
+    ViewData["Title"] = "Список студентов";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Студенты</title>
+    
+    <link href="~/css/table.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="get">
+        <div class="container">
+            <label class="control-label">Фамилия: </label>
+            <input name="secondName" class="form-control" />
+            <label class="control-label">Группа: </label>
+            <select name="group" asp-items="ViewBag.Groups" class="form-control"></select>
+            <input type="submit" value="Фильтр" class="btn btn-default" />
+        </div>
+    </form>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Номер зачетки</th>
+            <th>Средний балл</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            var role = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultRoleClaimType).Value;
+            var login = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultNameClaimType).Value;
+            var points = Model.Select(s => s.StatementStudentLists.Select(s=>s.Points).Sum());
+            var average = ViewBag.Average;
+            @foreach (var m in ViewBag.Average)
+            {
+               
+                    @if (s.RecordNumber == m.RecordNumber)
+                    {
+                       
+                            average = m.Average.ToString();
+                        
+                    }
+                
+            }
+            <tr>
+                <td>@s.FirstName</td>
+                <td>@s.SecondName</td>
+                <td>@s.RecordNumber</td>
+                <td>@average</td>
+                @if ((role == "Admin" || role == "Lecturer") || login == s.Login)
+                {
+                       <td> <a asp-action="About" asp-controller="Students" asp-route-id=@s.RecordNumber>Подробнее</a></td>
+                 }
+            </tr>
+                
+        }
+    </table>
+    @if (User.FindFirst(x => x.Type == ClaimsIdentity.DefaultRoleClaimType).Value == "Admin")
+    {
+        <p><a href="~/Students/CreateStudent">Добавить студента</a></p>
+    }
+</body>
+</html>

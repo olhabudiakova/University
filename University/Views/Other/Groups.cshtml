@@ -1,0 +1,33 @@
+﻿@model IEnumerable<University.Models.Group>
+@{
+     ViewBag.Title = "Группы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Список специальностей</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Номер группы</th>
+            <th>Курс</th>
+            <th>Специальность</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.GroupId</td>
+                <td>@s.StudyYear</td>
+                <td>@s.Specialty.Title</td>
+            </tr>
+        }
+    </table>
+
+    <p><a href="~/Other/CreateGroup">Добавить группу</a></p>
+    <p></p>
+</body>
+</html>

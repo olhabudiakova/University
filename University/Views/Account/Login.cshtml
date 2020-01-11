@@ -1,0 +1,59 @@
+﻿@model University.ViewModels.LoginModel
+@{
+    Layout = null;
+    <link href="~/css/style.css" rel="stylesheet" />
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <form id="loginForm" action="" method="post">
+
+        <div class="field">
+            <label>Имя пользователя:</label>
+            <div class="input"><input type="text" asp-for="Login" /></div>
+            <span asp-validation-for="Login" />
+        </div>
+
+        <div class="field">
+            <label>Пароль:</label>
+            <div class="input"><input type="password" asp-for="Password" /></div>
+            <span asp-validation-for="Password" />
+        </div>
+
+        <div class="submit">
+            <button type="submit">Войти</button>
+          
+           
+        </div>
+
+    </form>
+
+</body>
+</html>
+<!--<h2>Вход на сайт</h2>
+
+<form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+    <div class="field" asp-validation-summary="ModelOnly" />
+    <div class="center">
+        <div class="field">
+            <label asp-for="Login">Введите логин</label>
+            <input class="input" type="text" asp-for="Login" />
+            <span asp-validation-for="Login" />
+        </div>
+        <div class="field">
+            <label asp-for="Password">Введите пароль</label>
+            <input class="input" asp-for="Password" />
+            <span asp-validation-for="Password" />
+        </div>
+        <div class="submit">
+            <input type="submit" value="Войти" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</form>-->

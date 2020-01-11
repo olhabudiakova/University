@@ -1,0 +1,25 @@
+﻿@model University.Models.Works
+@{
+    ViewBag.Title = "Добавление типа работы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавление нового игрока</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Тип работы</legend>
+
+        <p>
+            Название работы <br />
+            @Html.EditorFor(model => model.Title)
+        </p>
+        <p>
+            <input type="submit" value="Добавить тип работы" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку типов работ", "WorksTypes")
+</div>

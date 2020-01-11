@@ -1,0 +1,1 @@
+﻿Select * from PassWorks left join Works on PassWorks.WorkId=Works.WorkId where SubjectId=1

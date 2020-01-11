@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Список студентов";
+ 
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Оформление заказа</title>
+ 
+    <link href="~/css/table.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h3>Форма добавления преподавателя</h3><br />
+        <p>Для добавления преподавателя заполните следующие поля:</p><br />
+        <form method="post">
+            <table>
+                <tr>
+                    <td>Имя:</td>
+                    <td><input type="text" name="FirstName" /> </td>
+                </tr>
+                <tr>
+                    <td>Фамилия:</td>
+                    <td><input type="text" name="SecondName" /></td>
+                </tr>
+                <tr>
+                    <td>Ученая степень:</td>
+                    <td><input type="text" name="AcademicDegree" /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="Email" /></td>
+                </tr>
+                <tr>
+                    <td>Логин:</td>
+                    <td><input type="text" name="Login" /></td>
+                </tr>
+                <tr>
+                    <td>Пароль:</td>
+                    <td><input type="password" name="Password" /></td>
+                </tr>
+                <br />
+                <tr><td><input type="submit" value="Добавить предодавателя" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Типы работ";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/table.css" rel="stylesheet" />
+    <title>Типы работ</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ИД</th>
+            <th>Тип работы</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.WorkId</td>
+                <td>@s.Title</td>
+            </tr>
+        }
+    </table>
+
+    <p><a href="~/Other/CreateWorkType">Добавить новый тип</a></p>
+</body>
+</html>
